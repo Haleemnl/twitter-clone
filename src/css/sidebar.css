@@ -8,11 +8,21 @@
     /* min-width: 250px; */
 }
 
+
+
 .sidebar-twittericon {
     color: var(--twitter-color);
     width: 40px;
     margin-left: 20px;
     margin-bottom: 20px;
+}
+
+.sidebarx-twittericon {
+    display: none;
+}
+
+.sidebarxx-twittericon {
+    display: none;
 }
 
 .sidebar-twittericon:hover {
@@ -32,7 +42,37 @@
 
 
 @media screen and (max-width:700px) {
-    .sidebar {
+    /* .sidebar {
+        display: none;
+    } */
+
+    .sidebar-twittericon {
+        display: none;
+    }
+
+    .sidebarx-twittericon {
+        color: var(--twitter-color);
+        width: 30px;
+        margin-top: 20px;
+        display: block;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .sidebarxx-twittericon {
+        color: var(--twitter-color);
+        width: 30px;
+        margin-top: 20px;
+        display: block;
+    }
+
+    .sidebarx-twittericon:hover {
+        cursor: pointer;
+    }
+
+    .close {
         display: none;
     }
 }

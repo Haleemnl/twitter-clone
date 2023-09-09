@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './css/sidebar.css'
 import SidebarOptions from './SidebarOptions';
 
@@ -15,54 +15,76 @@ import Button from '@mui/material/Button';
 
 
 const Sidebar = () => {
+
+    const [toggle, setToggle] = useState(false)
+
     return (
-        <div className='sidebar'>
-            {/* twitter icon */}
-            {/* <TwitterIcon className='sidebar-twittericon' /> */}
-            <img src="/images/x-logo.webp" className='sidebar-twittericon' alt="" />
-
-            {/* sidebar options */}
-            {/* sidebar options */}
-            {/* sidebar options */}
-            <SidebarOptions
-                active
-                icon={<HomeIcon />}
-                text='Home'
-            />
-            <SidebarOptions
-                icon={<SearchIcon />}
-                text='Explore'
-            />
-            <SidebarOptions
-                icon={<NotificationsNoneIcon />}
-                text='Notifications'
-            />
-            <SidebarOptions
-                icon={<MailOutlineIcon />}
-                text='Messages'
-            />
-            <SidebarOptions
-                icon={<BookmarkBorderIcon />}
-                text='Bookmarks'
-            />
-            <SidebarOptions
-                icon={<ListAltIcon />}
-                text='Lists'
-            />
-            <SidebarOptions
-                icon={<PermIdentityIcon />}
-                text='Profile'
-            />
-            <SidebarOptions
-                icon={<MoreHorizIcon />}
-                text='More'
+        <div className='sidebar-container'>
+            <img
+                src="/images/x-logo.webp"
+                className={toggle ? 'none' : 'sidebarx-twittericon'}
+                alt=""
+                onClick={() => setToggle(true)}
             />
 
+            <div className={toggle ? 'sidebar' : 'sidebar close'}>
+
+                <img
+                    src="/images/x-logo.webp"
+                    className='sidebarxx-twittericon'
+                    alt=""
+                    onClick={() => setToggle(false)}
+                />
+
+                {/* twitter icon */}
+                {/* <TwitterIcon className='sidebar-twittericon' /> */}
+                <img
+                    src="/images/x-logo.webp"
+                    className='sidebar-twittericon'
+                    alt=""
+
+                />
+
+                {/* sidebar options */}
+                <SidebarOptions
+                    active
+                    icon={<HomeIcon />}
+                    text='Home'
+                />
+                <SidebarOptions
+                    icon={<SearchIcon />}
+                    text='Explore'
+                />
+                <SidebarOptions
+                    icon={<NotificationsNoneIcon />}
+                    text='Notifications'
+                />
+                <SidebarOptions
+                    icon={<MailOutlineIcon />}
+                    text='Messages'
+                />
+                <SidebarOptions
+                    icon={<BookmarkBorderIcon />}
+                    text='Bookmarks'
+                />
+                <SidebarOptions
+                    icon={<ListAltIcon />}
+                    text='Lists'
+                />
+                <SidebarOptions
+                    icon={<PermIdentityIcon />}
+                    text='Profile'
+                />
+                <SidebarOptions
+                    icon={<MoreHorizIcon />}
+                    text='More'
+                />
 
 
-            {/* tweet */}
-            <Button variant="outlined" className='sidebar-tweet' fullWidth>Tweet</Button>
 
+                {/* tweet */}
+                <Button variant="outlined" className='sidebar-tweet' fullWidth>Tweet</Button>
+            </div>
         </div>
     )
 }
