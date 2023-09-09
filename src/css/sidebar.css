@@ -1,4 +1,4 @@
-.sidebar {
+.sidebar-container {
     border-right: 1px solid var(--twitter-background);
     flex: 0.3;
     margin-top: 20px;
