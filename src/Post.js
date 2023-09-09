@@ -7,67 +7,23 @@ import db from './firebase'
 
 const Post = ({ displayName, username, verified, text, image, avatar, id }) => {
 
-    const [like, setLike] = useState(false)
+    const [like, setLike] = useState(0)
     const [retweet, setRetweet] = useState(0)
 
     const updateLike = () => {
-        setLike(+ 1)
 
+        like >= 1 ? setLike(0) : setLike(like + 1)
+
+        // setLike(like + 1)
     }
     const updateRetweet = () => {
-        setRetweet(+ 1)
+        retweet >= 1 ? setRetweet(0) : setRetweet(like + 1)
     }
-
-    const deleteMovie = async (id) => {
-
-        const movieDoc = (doc(db, "posts", id));
-        await deleteDoc(movieDoc);
-
-        // OR await deleteDoc(doc(db, "movies", id));
-
-    }
-
 
 
     return (
         <div className='post'>
 
-            {/* <div className="post-avatar">
-                <Avatar src='https://pbs.twimg.com/profile_banners/1000958740730929152/1644642946/600x200' />
-            </div>
-            <div className="post-body">
-                <div className="post-header">
-                    <div className="post-headertext">
-                        <h3>haleem
-                            <span className='post-headerspecial'>
-                                {verified && <VerifiedUserRounded className='post-badge' />} @haleemnl
-                            </span>
-                        </h3>
-                    </div>
-                    <div className="post-headerdescription">
-                        <p>This is  Haleem's fixed page </p>
-                    </div>
-                </div>
-                <img src='https://media.giphy.com/media/i1JHRZSXO9LZZDHqii/giphy.gif' />
-
-                <div className="post-footer">
-                    <ChatBubbleOutline fontSize='small' />
-
-
-                    <span onClick={updateRetweet} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                        <Repeat fontSize='small' />
-                        {retweet}
-                    </span>
-
-                    <span onClick={updateLike} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                        <FavoriteBorder fontSize='small' />
-                        {like}
-                    </span>
-                    <Publish fontSize='small' />
-
-
-                </div>
-            </div> */}
 
 
             {/* ===================================================== */}
@@ -91,14 +47,14 @@ const Post = ({ displayName, username, verified, text, image, avatar, id }) => {
 
                 <div className="post-footer">
                     <ChatBubbleOutline fontSize='small' />
-                    <button onClick={() => deleteMovie(id)} > delete</button>
 
-                    <span onClick={updateRetweet} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+
+                    <span onClick={updateRetweet} >
                         <Repeat fontSize='small' />
                         {retweet}
                     </span>
 
-                    <span onClick={updateLike} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                    <span onClick={updateLike} >
                         <FavoriteBorder fontSize='small' />
                         {like}
                     </span>

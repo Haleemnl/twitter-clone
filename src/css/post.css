@@ -22,6 +22,12 @@
     margin-top: 10px;
 }
 
+.post-footer>span {
+    display: 'flex';
+    align-items: 'center';
+    cursor: 'pointer'
+}
+
 .post-headertext>h3 {
     font-size: 15px;
     margin-bottom: 5px;
