@@ -19,7 +19,7 @@ const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
 
     return (
-        <div className='sidebar-container'>
+        <>
             <img
                 src="/images/x-logo.webp"
                 className={toggle ? 'none' : 'sidebarx-twittericon'}
@@ -85,7 +85,7 @@ const Sidebar = () => {
                 {/* tweet */}
                 <Button variant="outlined" className='sidebar-tweet' fullWidth>Tweet</Button>
             </div>
-        </div>
+        </>
     )
 }
 
