@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './css/post.css'
 import { Avatar } from '@mui/material'
-import { ChatBubbleOutline, FavoriteBorder, Publish, Repeat, VerifiedUserRounded } from '@mui/icons-material'
+import { ChatBubbleOutline, FavoriteBorder, Publish, Repeat, VerifiedUserRounded, DeleteRounded } from '@mui/icons-material'
 import { deleteDoc, doc } from 'firebase/firestore'
 import db from './firebase'
 
-const Post = ({ displayName, username, verified, text, image, avatar, id }) => {
+const Post = ({ displayName, username, deleteBtn, verified, text, image, avatar, id }) => {
 
     const [like, setLike] = useState(0)
     const [retweet, setRetweet] = useState(0)
@@ -19,6 +19,15 @@ const Post = ({ displayName, username, verified, text, image, avatar, id }) => {
     const updateRetweet = () => {
         retweet >= 1 ? setRetweet(0) : setRetweet(like + 1)
     }
+
+    // delete func
+    const deleteMovie = async (id) => {
+
+        const movieDoc = (doc(db, "posts", id));
+        await deleteDoc(movieDoc);
+
+    }
+
 
 
     return (
@@ -58,7 +67,10 @@ const Post = ({ displayName, username, verified, text, image, avatar, id }) => {
                         <FavoriteBorder fontSize='small' />
                         {like}
                     </span>
-                    <Publish fontSize='small' />
+                    {/* delete icon */}
+                    <span onClick={() => deleteMovie(id)} >
+                        {deleteBtn && <DeleteRounded className='post-delete' />}
+                    </span>
 
 
                 </div>

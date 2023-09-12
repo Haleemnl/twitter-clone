@@ -25,9 +25,6 @@ const Feed = () => {
 
         })
 
-
-
-
     }, [])
 
 
@@ -60,7 +57,7 @@ const Feed = () => {
                         avatar={post.avatar}
                         image={post.image}
                         id={post.id}
-
+                        deleteBtn={post.deleteBtn}
                     />
 
                 </div>

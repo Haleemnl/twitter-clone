@@ -47,6 +47,12 @@
     color: var(--twitter-color);
 }
 
+.post-delete {
+    font-size: 20px !important;
+    color: rgba(241, 50, 50, 0.705);
+    cursor: pointer;
+}
+
 .post-headerspecial {
     font-weight: 600;
     font-size: 12px;

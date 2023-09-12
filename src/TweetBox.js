@@ -23,6 +23,7 @@ const TweetBox = () => {
                 displayName: 'haleem',
                 username: 'haleemnl',
                 verified: true,
+                deleteBtn: true,
                 avatar: 'https://pbs.twimg.com/profile_banners/1000958740730929152/1644642946/600x200'
             });
 
